@@ -18,4 +18,8 @@ Collector.prototype.sell = function (record) {
   this.cash += record.price;
 };
 
+Collector.prototype.collectionValue = function () {
+  return _.sumBy(this.collection, 'price');
+};
+
 module.exports = Collector;

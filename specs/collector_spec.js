@@ -11,7 +11,7 @@ describe('Collector test', function(){
   let record3;
 
   beforeEach(function(){
-    collector1 = new Collector('Grayson', 20.00);
+    collector1 = new Collector('Grayson', 23.00);
     collector2 = new Collector('Grunhilda', 15.00);
     record1 = new Record('Chamber Music', 'Iannis Xenakis', 12.99, 'Classical');
     record2 = new Record('Returnal', 'Oneohtrix Point Never', 9.99, 'Electronic');
@@ -32,13 +32,13 @@ describe('Collector test', function(){
 
   it('buying decreases cash', function(){
     collector1.buy(record1);
-    assert.strictEqual(collector1.cash, 7.01);
+    assert.strictEqual(collector1.cash, 10.01);
   });
 
   it('selling increases cash', function(){
     collector1.buy(record1);
     collector1.sell(record1);
-    assert.strictEqual(collector1.cash, 20);
+    assert.strictEqual(collector1.cash, 23);
   });
 
   it('can\'t buy records that are too expensive', function(){
@@ -46,7 +46,12 @@ describe('Collector test', function(){
     assert.deepStrictEqual(collector1.collection, []);
   });
 
-  it('can view collection value');
+  it('can view collection value', function(){
+    assert.strictEqual(collector1.collectionValue(), 0);
+    collector1.buy(record1);
+    collector1.buy(record2);
+    assert.strictEqual(collector1.collectionValue(), 22.98);
+  });
 
   it('can view value by Genre');
 
