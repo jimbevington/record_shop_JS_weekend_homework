@@ -24,7 +24,11 @@ describe('Collector test', function(){
     assert.deepStrictEqual(collector1.collection, [record1]);
   });
 
-  it('can sell records');
+  it('can sell records', function(){
+    collector1.buy(record1);
+    collector1.sell(record1);
+    assert.deepStrictEqual(collector1.collection, []);
+  });
 
   it('buying decreases cash');
 
