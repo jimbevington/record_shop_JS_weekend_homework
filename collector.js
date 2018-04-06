@@ -31,4 +31,17 @@ Collector.prototype.listCollection = function () {
   return this.collection.map(record => record.printProperties());
 };
 
+Collector.prototype.listByValue = function (direction) {
+  direction === 'ascending' ? this.listValueAscending() : this.listValueDescending();
+};
+
+Collector.prototype.listValueAscending = function () {
+  let list = _.sortBy(this.collection, 'price');
+  return list.map(record => record.printProperties());
+};
+
+Collector.prototype.listValueDescending = function () {
+  return listValueAscending().reverse();
+};
+
 module.exports = Collector;
