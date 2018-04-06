@@ -11,11 +11,11 @@ describe('Collector test', function(){
   let record3;
 
   beforeEach(function(){
-    collector1 = new Collector('Grayson', 150);
-    collector2 = new Collector('Grunhilda', 350);
+    collector1 = new Collector('Grayson', 20.00);
+    collector2 = new Collector('Grunhilda', 15.00);
     record1 = new Record('Chamber Music', 'Iannis Xenakis', 12.99, 'Classical');
     record2 = new Record('Returnal', 'Oneohtrix Point Never', 9.99, 'Electronic');
-    record3 = new Record('Elite Excel', 'Stellar Om Source', 11.88, 'Electronic');
+    record3 = new Record('Elite Excel', 'Stellar Om Source', 25.88, 'Electronic');
   })
 
   it('can buy records', function(){
@@ -30,7 +30,10 @@ describe('Collector test', function(){
     assert.deepStrictEqual(collector1.collection, []);
   });
 
-  it('buying decreases cash');
+  it('buying decreases cash', function(){
+    collector1.buy(record1);
+    assert.strictEqual(collector1.cash, 7.01);
+  });
 
   it('selling increases cash');
 
