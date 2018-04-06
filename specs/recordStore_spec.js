@@ -62,10 +62,7 @@ describe('Record Store test', function(){
     store.add(record1);
     store.add(record2);
     store.add(record3);
-    assert.deepStrictEqual(store.listBy('Electronic'), [record1.printProperties(), record3.printProperties()])
+    assert.deepStrictEqual(store.listByGenre('Electronic'), [record1.printProperties(), record3.printProperties()])
   })
 
 })
-
-
-// Create a method that allows the store to view all Records of a given Genre.

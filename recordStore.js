@@ -33,7 +33,7 @@ RecordStore.prototype.viewBooks = function () {
   return `Balance: £${roundedBalance}, Inventory Value: £${inventoryValue}`;
 };
 
-RecordStore.prototype.listBy = function (value) {
+RecordStore.prototype.listByGenre = function (value) {
   let list = _.filter(this.inventory, {'genre': value})
   return list.map(record => record.printProperties());
 };
