@@ -41,7 +41,10 @@ describe('Collector test', function(){
     assert.strictEqual(collector1.cash, 20);
   });
 
-  it('can\'t buy records that are too expensive');
+  it('can\'t buy records that are too expensive', function(){
+    collector1.buy(record3);
+    assert.deepStrictEqual(collector1.collection, []);
+  });
 
   it('can view collection value');
 
