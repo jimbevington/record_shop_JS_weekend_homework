@@ -74,18 +74,6 @@ describe('Collector test', function(){
     assert.deepStrictEqual(collector1.listCollection(), [record1.printProperties(), record2.printProperties()]);
   });
 
-  it('can sort records by Value - ascending', function(){
-    collector1.buy(record1);
-    collector1.buy(record2);
-    assert.deepStrictEqual(collector1.listValueAscending(), [record2.printProperties(), record1.printProperties()]);
-  });
-
-  it('can sort records by Value - descending', function(){
-    collector1.buy(record1);
-    collector1.buy(record2);
-    assert.deepStrictEqual(collector1.listValueDescending(), [record1.printProperties(), record2.printProperties()]);
-  });
-
   it('can sort records by Value - use listByValue()', function(){
     collector1.buy(record1);
     collector1.buy(record2);
