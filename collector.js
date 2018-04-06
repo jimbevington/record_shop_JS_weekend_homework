@@ -41,7 +41,7 @@ Collector.prototype.listValueAscending = function () {
 };
 
 Collector.prototype.listValueDescending = function () {
-  return listValueAscending().reverse();
+  return this.listValueAscending().reverse();
 };
 
 module.exports = Collector;
