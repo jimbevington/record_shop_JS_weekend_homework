@@ -32,7 +32,7 @@ Collector.prototype.listCollection = function () {
 };
 
 Collector.prototype.listByValue = function (direction) {
-  direction === 'ascending' ? this.listValueAscending() : this.listValueDescending();
+  return direction === 'ascending' ? this.listValueAscending() : this.listValueDescending();
 };
 
 Collector.prototype.listValueAscending = function () {
@@ -43,5 +43,6 @@ Collector.prototype.listValueAscending = function () {
 Collector.prototype.listValueDescending = function () {
   return this.listValueAscending().reverse();
 };
+
 
 module.exports = Collector;
