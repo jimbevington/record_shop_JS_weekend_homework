@@ -32,16 +32,12 @@ Collector.prototype.listCollection = function () {
 };
 
 Collector.prototype.listByValue = function (direction) {
-  return direction === 'ascending' ? this.listValueAscending() : this.listValueDescending();
+  return direction === 'ascending' ? this.listValuesAscending() : this.listValuesAscending().reverse();
 };
 
-Collector.prototype.listValueAscending = function () {
+Collector.prototype.listValuesAscending = function () {
   let list = _.sortBy(this.collection, 'price');
   return list.map(record => record.printProperties());
-};
-
-Collector.prototype.listValueDescending = function () {
-  return this.listValueAscending().reverse();
 };
 
 
