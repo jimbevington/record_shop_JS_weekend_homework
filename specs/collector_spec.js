@@ -18,7 +18,11 @@ describe('Collector test', function(){
     record3 = new Record('Elite Excel', 'Stellar Om Source', 11.88, 'Electronic');
   })
 
-  it('can buy records');
+  it('can buy records', function(){
+    assert.deepStrictEqual(collector1.collection, []);
+    collector1.buy(record1);
+    assert.deepStrictEqual(collector1.collection, [record1]);
+  });
 
   it('can sell records');
 
