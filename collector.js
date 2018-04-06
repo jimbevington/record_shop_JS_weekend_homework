@@ -4,4 +4,8 @@ const Collector = function(name, cash){
   this.collection = [];
 }
 
+Collector.prototype.buy = function (record) {
+  this.collection.push(record);
+};
+
 module.exports = Collector;
