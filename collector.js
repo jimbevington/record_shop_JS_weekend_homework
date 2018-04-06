@@ -22,4 +22,9 @@ Collector.prototype.collectionValue = function () {
   return _.sumBy(this.collection, 'price');
 };
 
+Collector.prototype.valueByGenre = function (genre) {
+  let genreList = _.filter(this.collection, {'genre': genre});
+  return _.sumBy(genreList, 'price');
+};
+
 module.exports = Collector;

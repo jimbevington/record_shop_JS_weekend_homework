@@ -12,7 +12,7 @@ describe('Collector test', function(){
 
   beforeEach(function(){
     collector1 = new Collector('Grayson', 23.00);
-    collector2 = new Collector('Grunhilda', 15.00);
+    collector2 = new Collector('Grunhilda', 100.00);
     record1 = new Record('Chamber Music', 'Iannis Xenakis', 12.99, 'Classical');
     record2 = new Record('Returnal', 'Oneohtrix Point Never', 9.99, 'Electronic');
     record3 = new Record('Elite Excel', 'Stellar Om Source', 25.88, 'Electronic');
@@ -53,7 +53,17 @@ describe('Collector test', function(){
     assert.strictEqual(collector1.collectionValue(), 22.98);
   });
 
-  it('can view value by Genre');
+  it('can view value by Genre', function(){
+    // no Electronic records yet
+    assert.strictEqual(collector2.valueByGenre('Electronic'), 0)
+    collector2.buy(record1);
+    // still no Electronic records
+    assert.strictEqual(collector2.valueByGenre('Electronic'), 0)
+    collector2.buy(record2);
+    collector2.buy(record3);
+    // now 2 Electronic records
+    assert.strictEqual(collector2.valueByGenre('Electronic'), 35.87);
+  });
 
   it('can view valueS by Genre');
 
