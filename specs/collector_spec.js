@@ -65,9 +65,14 @@ describe('Collector test', function(){
     assert.strictEqual(collector2.valueByGenre('Electronic'), 35.87);
   });
 
+// DO THIS
   it('can view valueS by Genre');
 
-  it('can print collection');
+  it('can print collection', function(){
+    collector1.buy(record1);
+    collector1.buy(record2);
+    assert.deepStrictEqual(collector1.listCollection(), [record1.printProperties(), record2.printProperties()]);
+  });
 
   it('can sort records by Value - ascending');
 

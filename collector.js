@@ -27,4 +27,8 @@ Collector.prototype.valueByGenre = function (genre) {
   return _.sumBy(genreList, 'price');
 };
 
+Collector.prototype.listCollection = function () {
+  return this.collection.map(record => record.printProperties());
+};
+
 module.exports = Collector;
