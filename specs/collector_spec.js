@@ -86,6 +86,18 @@ describe('Collector test', function(){
     assert.deepStrictEqual(collector1.listByValue('descending'), [record1.printProperties(), record2.printProperties()]);
   });
 
-  it('can compare values with another collector');
+  it('can compare values with another collector - worth more', function(){
+    collector1.buy(record1);
+    collector1.buy(record2);
+    collector2.buy(record3);
+    assert.strictEqual(collector1.compareCollections(collector2), 'YOU WIN! Your Collection is worth £2.90 MORE!');
+  });
+
+  xit('can compare values with another collector - worth more', function(){
+    collector1.buy(record1);
+    collector2.buy(record2);
+    collector2.buy(record3);
+    assert.strictEqual(collector1.compareCollections(collector2), 'YOU LOSE! Your Collection is worth £22.88 LESS!');
+  });
 
 })
