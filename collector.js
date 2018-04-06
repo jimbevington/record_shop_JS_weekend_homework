@@ -13,6 +13,7 @@ Collector.prototype.buy = function (record) {
 
 Collector.prototype.sell = function (record) {
   _.remove(this.collection, record);
+  this.cash += record.price;
 };
 
 module.exports = Collector;

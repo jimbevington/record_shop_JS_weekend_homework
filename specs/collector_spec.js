@@ -35,7 +35,11 @@ describe('Collector test', function(){
     assert.strictEqual(collector1.cash, 7.01);
   });
 
-  it('selling increases cash');
+  it('selling increases cash', function(){
+    collector1.buy(record1);
+    collector1.sell(record1);
+    assert.strictEqual(collector1.cash, 20);
+  });
 
   it('can\'t buy records that are too expensive');
 
