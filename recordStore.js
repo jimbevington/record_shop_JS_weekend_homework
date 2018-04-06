@@ -12,13 +12,7 @@ RecordStore.prototype.add = function (record) {
 };
 
 RecordStore.prototype.listInventory = function () {
-
-  // REFACTOR THIS
-  let details = []
-  for (let record of this.inventory){
-    details.push(record.printProperties());
-  }
-  return details;
+  return this.inventory.map(record => record.printProperties());
 };
 
 RecordStore.prototype.sell = function (record) {
