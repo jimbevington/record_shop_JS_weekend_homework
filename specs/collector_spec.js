@@ -66,7 +66,7 @@ describe('Collector test', function(){
     assert.strictEqual(collector2.valueByGenre('Electronic'), 35.87);
   });
 
-// DO THIS
+// DO THIS MONDAY MORNING using that sweet LoDash method
   it('can view valueS by Genre');
 
   it('can print collection', function(){
