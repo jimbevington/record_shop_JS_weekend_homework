@@ -40,5 +40,19 @@ Collector.prototype.listValuesAscending = function () {
   return list.map(record => record.printProperties());
 };
 
+Collector.prototype.compareCollections = function (collector) {
+  let lessMore;
+  let difference = this.collectionValue() - collector.collectionValue();
+  if (difference == 0){
+    return 'The collections are of equal worth. Chilllllllll.'
+  } else if (difference < 0){
+    lessMore = 'LESS';
+    difference = difference * -1;
+  } else {
+    lessMore = 'MORE';
+  }
+  return `Your Collection is worth £${difference.toFixed(2)} ${lessMore}!`;
+};
+
 
 module.exports = Collector;

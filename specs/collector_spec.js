@@ -50,6 +50,7 @@ describe('Collector test', function(){
     assert.strictEqual(collector1.collectionValue(), 0);
     collector1.buy(record1);
     collector1.buy(record2);
+    collector1.buy(record3);
     assert.strictEqual(collector1.collectionValue(), 22.98);
   });
 
@@ -88,16 +89,21 @@ describe('Collector test', function(){
 
   it('can compare values with another collector - worth more', function(){
     collector1.buy(record1);
-    collector1.buy(record2);
-    collector2.buy(record3);
-    assert.strictEqual(collector1.compareCollections(collector2), 'YOU WIN! Your Collection is worth £2.90 MORE!');
+    collector2.buy(record2);
+    assert.strictEqual(collector1.compareCollections(collector2), 'Your Collection is worth £3.00 MORE!');
   });
 
-  xit('can compare values with another collector - worth more', function(){
+  it('can compare values with another collector - worth less', function(){
     collector1.buy(record1);
     collector2.buy(record2);
     collector2.buy(record3);
-    assert.strictEqual(collector1.compareCollections(collector2), 'YOU LOSE! Your Collection is worth £22.88 LESS!');
+    assert.strictEqual(collector1.compareCollections(collector2), 'Your Collection is worth £22.88 LESS!');
   });
+
+  it('can compare values with another collector - worth the same', function(){
+    collector1.buy(record1);
+    collector2.buy(record1);
+    assert.strictEqual(collector1.compareCollections(collector2), 'The collections are of equal worth. Chilllllllll.')
+  })
 
 })
